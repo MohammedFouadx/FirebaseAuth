@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "751088569941",
+    "project_id": "firestore-ee461",
+    "storage_bucket": "firestore-ee461.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751088569941:android:9da4627919ea1904744edc",
+        "android_client_info": {
+          "package_name": "sim.coder.firestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751088569941-tfra8r7ctq0a80b7mg3tdhckc693nmln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sim.coder.firestore",
+            "certificate_hash": "467e4fc8fe19b57a5d671db07fb3470783eb1639"
+          }
+        },
+        {
+          "client_id": "751088569941-lvjnpem4pg4aimiiehnl2asipkjpmp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgJzeOrkAYzoQrbbX1JEeUdPXysHb0GNw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751088569941-lvjnpem4pg4aimiiehnl2asipkjpmp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
