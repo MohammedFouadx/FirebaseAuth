@@ -1,13 +1,13 @@
 package sim.coder.firestore
 
+import android.app.ProgressDialog
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -27,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginEmail:EditText
     private lateinit var loginPassword:EditText
     private lateinit var auth:FirebaseAuth
+    private lateinit var obtainCodeTv:TextView
+    private lateinit var progressBar: ProgressBar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,30 +44,54 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+        obtainCodeTv=findViewById(R.id.obtain_code)
         loginEmail=findViewById(R.id.login_et_email)
         loginPassword=findViewById(R.id.login_et_password)
         registerActivityButton=findViewById(R.id.signUp_activity_button)
         phoneNumberButton=findViewById(R.id.phoneNumber_btn)
+        progressBar=findViewById(R.id.progress_bar)
+
+
+
 
         phoneNumberButton.setOnClickListener {
             email_layout.visibility=View.GONE
             password_layout.visibility=View.GONE
             view_view.visibility=View.VISIBLE
             phone_InputLayout.visibility=View.VISIBLE
-            loginUsingPhone()
+            obtainCodeTv.visibility=View.VISIBLE
+            phoneNumberButton.visibility=View.GONE
+            loginButton.text="Sing in with email"
+
 
         }
+
+        obtainCodeTv.setOnClickListener {
+            progressBar.visibility=View.VISIBLE
+            val progressDialog = ProgressDialog(this@LoginActivity)
+            progressDialog.setTitle("Phone Number Authentication")
+            progressDialog.setMessage("Code is loading, please wait")
+            progressDialog.show()
+            loginUsingPhone()
+        }
+
+
+
 
         registerActivityButton.setOnClickListener {
             val intent=Intent(this,RegisterActivity::class.java)
             overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left)
             startActivity(intent)
         }
+
+
         loginButton=findViewById(R.id.login_button)
 
         loginButton.setOnClickListener {
             val email=loginEmail.text.toString()
             val pass = loginPassword.text.toString()
+            loginButton.text="Login"
+            phoneNumberButton.visibility=View.VISIBLE
             if (email.isEmpty()){
                 email_layout.visibility=View.VISIBLE
                 password_layout.visibility=View.VISIBLE

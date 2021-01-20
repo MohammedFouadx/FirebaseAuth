@@ -107,6 +107,18 @@
             android:paddingEnd="6dp"
             android:visibility="gone">
 
+                <TextView
+                    android:id="@+id/obtain_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obtain Code"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:textColor="@color/colorPrimary"/>
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_et_phoneNumber"
                 android:layout_width="match_parent"
@@ -146,8 +158,31 @@
                     android:id="@+id/login_et_password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/progress_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+            </ProgressBar>
+
+
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
     <Button
         android:id="@+id/login_button"

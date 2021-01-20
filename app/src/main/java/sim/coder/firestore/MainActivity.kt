@@ -3,6 +3,9 @@ package sim.coder.firestore
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -28,4 +31,32 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun signOut(){
+        auth.signOut()
+        val intent=Intent(this,LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.sing_out -> {
+                signOut()
+                true
+            }
+            else ->{
+                super.onOptionsItemSelected(item)
+            }
+
+        }
+    }
+
 }
